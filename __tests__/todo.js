@@ -9,10 +9,10 @@ describe("Todo Test Suite", () => {
       new Date().setDate(new Date().getDate() - 1)
     ).toLocaleDateString("en-CA");
     let today = new Date().toLocaleDateString("en-CA");
-    add({ title: "S_A", dueDate: yesterday, completed: false });
-    add({ title: "P_A", dueDate: yesterday, completed: false });
-    add({ title: "S_V", dueDate: yesterday, completed: false });
-    add({ title: "F_T", dueDate: today, completed: false });
+    add({ title: "Wake Up Morning", dueDate: yesterday, completed: false });
+    add({ title: "Complete WEB DEVELOPMENT Course", dueDate: yesterday, completed: false });
+    add({ title: "Practice Coding", dueDate: yesterday, completed: false });
+    add({ title: "Check Mails", dueDate: today, completed: false });
   });
 
   test("Testing Add todo Function", () => {
@@ -20,7 +20,7 @@ describe("Todo Test Suite", () => {
     let tomorrow = new Date(
       new Date().setDate(new Date().getDate() + 1)
     ).toLocaleDateString("en-CA");
-    add({ title: "P_E bill", dueDate: tomorrow, completed: false });
+    add({ title: "Complete work", dueDate: tomorrow, completed: false });
     expect(all.length).toBe(todoItemsCount + 1);
   });
 
@@ -33,18 +33,18 @@ describe("Todo Test Suite", () => {
 
   test("Testing retrieval of overdue items", () => {
     expect(overdue().length).toBe(3);
-    expect(overdue()[0].title).toBe("S_A");
-    expect(overdue()[1].title).toBe("P_R");
-    expect(overdue()[2].title).toBe("S_V");
+    expect(overdue()[0].title).toBe("Wake Up Morning");
+    expect(overdue()[1].title).toBe("Complete WEB DEVELOPMENT Course");
+    expect(overdue()[2].title).toBe("Practice Coding");
   });
 
   test("Testing retrieval of due today Items", () => {
     expect(dueToday().length).toBe(1);
-    expect(dueToday()[0].title).toBe("F_T");
+    expect(dueToday()[0].title).toBe("Check Mails");
   });
 
   test("Testing retrieval of due later Items", () => {
     expect(dueLater().length).toBe(1);
-    expect(dueLater()[0].title).toBe("P_E bill");
+    expect(dueLater()[0].title).toBe("Complete work");
   });
 });
