@@ -14,7 +14,7 @@
       "prettier --write ."
     ]
   },
-  "author": "Rishi <rishikeshaluguveli@gmail.com>",
+  "author": "Akash <akashkatkam09@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "eslint": "^8.23.1",
