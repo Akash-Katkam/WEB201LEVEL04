@@ -40,7 +40,7 @@ describe("Todo Test Suite", () => {
 
   test("Testing retrieval of due today Items", () => {
     expect(dueToday().length).toBe(1);
-    expect(dueToday()[0].title).toBe("File taxes");
+    expect(dueToday()[0].title).toBe("F_T");
   });
 
   test("Testing retrieval of due later Items", () => {
