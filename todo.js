@@ -8,14 +8,6 @@ const todoList = () => {
     return d.toISOString().split("T")[0];
   };
 
-  var dateToday = new Date();
-  const today = formattedDate(dateToday);
-  const yesterday = formattedDate(
-    new Date(new Date().setDate(dateToday.getDate() - 1))
-  );
-  const tomorrow = formattedDate(
-    new Date(new Date().setDate(dateToday.getDate() + 1))
-  );
   const markAsComplete = (index) => {
     all[index].completed = true;
   };
@@ -37,16 +29,14 @@ const todoList = () => {
     return all.filter((item) => item.dueDate > formattedDate(new Date()));
   };
 
-  const toDisplayableList = (list) => {
-    // Format the To-Do list here, and return the output string as per the format given above.
-    output = "";
-    for (let i = 0; i < list.length; i++) {
-      output += `[${list[i].completed ? "x" : " "}] ${list[i].title} ${
-        list[i].dueDate == formattedDate(new Date()) ? "" : list[i].dueDate
-      }${i < list.length - 1 ? "\n" : ""}`;
-    }
-    return output;
-  };
+  output = list
+      .map(
+        (x) =>
+          `[${x.completed ? "x" : " "}] ${x.title} ${
+            x.dueDate == formattedDate(new Date()) ? "" : x.dueDate
+          }`
+      )
+      .join("\n");
 
   return {
     all,
@@ -56,11 +46,6 @@ const todoList = () => {
     dueToday,
     dueLater,
     toDisplayableList,
-    formattedDate,
-    dateToday,
-    today,
-    yesterday,
-    tomorrow,
   };
 };
 
